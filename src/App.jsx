@@ -18,46 +18,46 @@ const categories = [
 
 const aiModels = [
   // Research
-  { id: 1, name: 'AI2 OLMo 7B', category: 'Research', params: '7B', desc: 'Fully open model from the Allen Institute—open training data, code, logs, and weights.', tags: ['Open Data', 'Science'][...]
-  { id: 2, name: 'AI2 OLMoE', category: 'Research', params: '64B / 7B Act', desc: 'A Mixture of Experts version of OLMo. Strong efficiency and performance with total training transparency.', tags:[...]
-  { id: 3, name: 'EleutherAI Pythia', category: 'Research', params: '12B', desc: 'Designed for interpretability research, with multiple checkpoints across training.', tags: ['Interpretability'], p[...]
-  { id: 4, name: 'LLM360 K2', category: 'Research', params: '65B', desc: 'A 65B model with fully open-source datasets and training logs. Rare large-scale transparency.', tags: ['Logs Open'], platf[...]
-  { id: 5, name: 'CrystalCoder', category: 'Research', params: '7B', desc: 'A code model released with full training transparency, completely open.', tags: ['Code'], platform: 'LLM360 Hub', link: [...]
-  { id: 6, name: 'Map-Neo', category: 'Research', params: '7B', desc: 'A fully open bilingual English-Chinese model, trained on 4.2T clean tokens.', tags: ['Bilingual'], platform: 'Hugging Face', [...]
-  { id: 7, name: 'BLOOM', category: 'Research', params: '176B', desc: 'The first truly massive multilingual open model (46 languages).', tags: ['Massive', '46 Languages'], platform: 'Hugging Face'[...]
+  { id: 1, name: 'AI2 OLMo 7B', category: 'Research', params: '7B', desc: 'Fully open model from the Allen Institute—open training data, code, logs, and weights.', tags: ['Open Data', 'Science'], platform: 'Hugging Face', link: 'https://huggingface.co/allenai/OLMo-7B', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("allenai/OLMo-7B")' },
+  { id: 2, name: 'AI2 OLMoE', category: 'Research', params: '64B / 7B Act', desc: 'A Mixture of Experts version of OLMo. Strong efficiency and performance with total training transparency.', tags: ['MoE', 'Efficient'], platform: 'Hugging Face', link: 'https://huggingface.co/allenai/OLMoE-1B', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("allenai/OLMoE-1B")' },
+  { id: 3, name: 'EleutherAI Pythia', category: 'Research', params: '12B', desc: 'Designed for interpretability research, with multiple checkpoints across training.', tags: ['Interpretability'], platform: 'Hugging Face', link: 'https://huggingface.co/EleutherAI/pythia-12b', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("EleutherAI/pythia-12b")' },
+  { id: 4, name: 'LLM360 K2', category: 'Research', params: '65B', desc: 'A 65B model with fully open-source datasets and training logs. Rare large-scale transparency.', tags: ['Logs Open'], platform: 'LLM360 Hub', link: 'https://www.llm360.ai', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("LLM360/K2")' },
+  { id: 5, name: 'CrystalCoder', category: 'Research', params: '7B', desc: 'A code model released with full training transparency, completely open.', tags: ['Code'], platform: 'LLM360 Hub', link: 'https://www.llm360.ai', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("LLM360/CrystalCoder-7B")' },
+  { id: 6, name: 'Map-Neo', category: 'Research', params: '7B', desc: 'A fully open bilingual English-Chinese model, trained on 4.2T clean tokens.', tags: ['Bilingual'], platform: 'Hugging Face', link: 'https://huggingface.co/MAP-Org/Map-Neo-7B', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("MAP-Org/Map-Neo-7B")' },
+  { id: 7, name: 'BLOOM', category: 'Research', params: '176B', desc: 'The first truly massive multilingual open model (46 languages).', tags: ['Massive', '46 Languages'], platform: 'Hugging Face', link: 'https://huggingface.co/bigscience/bloom', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("bigscience/bloom")' },
   
   // Enterprise
-  { id: 8, name: 'Command R+', category: 'Enterprise', params: '104B', desc: 'Best-in-class for RAG, multi-step tool use, and multilingual summarization.', tags: ['RAG', 'Tool Use'], platform: 'Co[...]
-  { id: 9, name: 'DBRX', category: 'Enterprise', params: '132B / 36B Act', desc: 'A fine-grained MoE built for coding, SQL, and reasoning. Open-weight.', tags: ['SQL', 'MoE'], platform: 'Databrick[...]
-  { id: 10, name: 'Arctic', category: 'Enterprise', params: '480B / 17B Act', desc: 'A dense-MoE hybrid optimized for enterprise SQL generation and instruction-following.', tags: ['Enterprise', 'D[...]
-  { id: 11, name: 'Nemotron‑4', category: 'Enterprise', params: '340B', desc: 'Released as a reward model and synthetic data generator.', tags: ['Reward Model'], platform: 'NVIDIA NIM', link: 'h[...]
-  { id: 12, name: 'Granite 3', category: 'Enterprise', params: '8B, 20B', desc: 'Open-source models purpose-built for business. Small footprint, strong on benchmarks.', tags: ['Business'], platfor[...]
-  { id: 13, name: 'XGen', category: 'Enterprise', params: '7B', desc: 'Early mover in long-context models (8K) trained with a unique staged data recipe.', tags: ['Long Context'], platform: 'Salesf[...]
+  { id: 8, name: 'Command R+', category: 'Enterprise', params: '104B', desc: 'Best-in-class for RAG, multi-step tool use, and multilingual summarization.', tags: ['RAG', 'Tool Use'], platform: 'Cohere API', link: 'https://cohere.com', accessType: 'api', code: 'import cohere\nclient = cohere.ClientV2(api_key="YOUR_KEY")\nresponse = client.messages.create(model="command-r-plus")' },
+  { id: 9, name: 'DBRX', category: 'Enterprise', params: '132B / 36B Act', desc: 'A fine-grained MoE built for coding, SQL, and reasoning. Open-weight.', tags: ['SQL', 'MoE'], platform: 'Databricks', link: 'https://www.databricks.com', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("databricks/dbrx-instruct")' },
+  { id: 10, name: 'Arctic', category: 'Enterprise', params: '480B / 17B Act', desc: 'A dense-MoE hybrid optimized for enterprise SQL generation and instruction-following.', tags: ['Enterprise', 'Dense'], platform: 'Snowflake', link: 'https://www.snowflake.com', accessType: 'api', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("Snowflake/arctic")' },
+  { id: 11, name: 'Nemotron-4', category: 'Enterprise', params: '340B', desc: 'Released as a reward model and synthetic data generator.', tags: ['Reward Model'], platform: 'NVIDIA NIM', link: 'https://www.nvidia.com', accessType: 'api', code: 'import requests\nresponse = requests.post("https://api.nvcf.nvidia.com/v2/nims/meta/llama2-70b")' },
+  { id: 12, name: 'Granite 3', category: 'Enterprise', params: '8B, 20B', desc: 'Open-source models purpose-built for business. Small footprint, strong on benchmarks.', tags: ['Business'], platform: 'Hugging Face', link: 'https://huggingface.co/ibm-granite', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("ibm-granite/granite-8b-code-instruct")' },
+  { id: 13, name: 'XGen', category: 'Enterprise', params: '7B', desc: 'Early mover in long-context models (8K) trained with a unique staged data recipe.', tags: ['Long Context'], platform: 'Salesforce', link: 'https://www.salesforce.com', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("Salesforce/xgen-7b-8k-base")' },
 
   // Code
-  { id: 14, name: 'StarCoder2', category: 'Code', params: '15B', desc: 'A completely open code model trained on the Software Heritage archive.', tags: ['Software Heritage'], platform: 'Hugging Fac[...]
-  { id: 15, name: 'MPT-30B', category: 'Code', params: '30B', desc: 'One of the first open models with an 8K context length.', tags: ['Doc QA'], platform: 'MosaicML', link: 'https://huggingface.co[...]
-  { id: 16, name: 'MPT-7B', category: 'Code', params: '7B', desc: 'Smaller version trained on a mix of code and prose; highly customizable.', tags: ['Mixed Data'], platform: 'MosaicML', link: 'htt[...]
-  { id: 17, name: 'Gorilla', category: 'Code', params: '7B', desc: 'Specializes in function calling and API orchestration.', tags: ['API Orchestration'], platform: 'Berkeley Server', link: 'https:[...]
+  { id: 14, name: 'StarCoder2', category: 'Code', params: '15B', desc: 'A completely open code model trained on the Software Heritage archive.', tags: ['Software Heritage'], platform: 'Hugging Face', link: 'https://huggingface.co/bigcode/starcoder2-15b', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("bigcode/starcoder2-15b")' },
+  { id: 15, name: 'MPT-30B', category: 'Code', params: '30B', desc: 'One of the first open models with an 8K context length.', tags: ['Doc QA'], platform: 'MosaicML', link: 'https://www.mosaicml.com', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("mosaicml/mpt-30b")' },
+  { id: 16, name: 'MPT-7B', category: 'Code', params: '7B', desc: 'Smaller version trained on a mix of code and prose; highly customizable.', tags: ['Mixed Data'], platform: 'MosaicML', link: 'https://www.mosaicml.com', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("mosaicml/mpt-7b")' },
+  { id: 17, name: 'Gorilla', category: 'Code', params: '7B', desc: 'Specializes in function calling and API orchestration.', tags: ['API Orchestration'], platform: 'Berkeley', link: 'https://gorilla.cs.berkeley.edu', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("gorilla-llm/gorilla-7b-hf-v0")' },
 
   // Multilingual
-  { id: 18, name: 'Yi-Lightning', category: 'Multilingual', params: 'MoE', desc: 'A MoE model that ranks near the top of the Arena. Top-tier in Chinese and English.', tags: ['Bilingual'], platform[...]
-  { id: 19, name: 'Exaone', category: 'Multilingual', params: '8B', desc: 'LG AI Research\'s bilingual Korean-English model. Strong on Korean benchmarks.', tags: ['Korean-English'], platform: 'Hug[...]
-  { id: 20, name: 'Vikhr', category: 'Multilingual', params: '7B', desc: 'Open Russian-oriented model with solid performance on Russian generation.', tags: ['Russian'], platform: 'Hugging Face', l[...]
-  { id: 21, name: 'Aya 23', category: 'Multilingual', params: '35B', desc: 'Covers 23 languages with deep localisation. Purpose-built for translation.', tags: ['23 Languages'], platform: 'Cohere D[...]
-  { id: 22, name: 'BLOOMChat', category: 'Multilingual', params: '176B', desc: 'A fine-tuned version of BLOOM optimised for chat across 6 languages.', tags: ['Chat'], platform: 'SambaNova Cloud', [...]
+  { id: 18, name: 'Yi-Lightning', category: 'Multilingual', params: 'MoE', desc: 'A MoE model that ranks near the top of the Arena. Top-tier in Chinese and English.', tags: ['Bilingual'], platform: 'Yi Inc', link: 'https://www.01.ai', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("01-ai/Yi-34B-Chat")' },
+  { id: 19, name: 'Exaone', category: 'Multilingual', params: '8B', desc: 'LG AI Research\'s bilingual Korean-English model. Strong on Korean benchmarks.', tags: ['Korean-English'], platform: 'Hugging Face', link: 'https://huggingface.co/LG-AI-Research/EXAONE-3-Instruct', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("LG-AI-Research/EXAONE-3-Instruct")' },
+  { id: 20, name: 'Vikhr', category: 'Multilingual', params: '7B', desc: 'Open Russian-oriented model with solid performance on Russian generation.', tags: ['Russian'], platform: 'Hugging Face', link: 'https://huggingface.co/Vikhrmodels/Vikhr-7B', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("Vikhrmodels/Vikhr-7B")' },
+  { id: 21, name: 'Aya 23', category: 'Multilingual', params: '35B', desc: 'Covers 23 languages with deep localisation. Purpose-built for translation.', tags: ['23 Languages'], platform: 'Cohere', link: 'https://cohere.com', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("CohereForAI/aya-23-35B")' },
+  { id: 22, name: 'BLOOMChat', category: 'Multilingual', params: '176B', desc: 'A fine-tuned version of BLOOM optimised for chat across 6 languages.', tags: ['Chat'], platform: 'Hugging Face', link: 'https://huggingface.co/bigscience/bloomz-7b1-mt', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("bigscience/bloomz-7b1-mt")' },
 
   // Edge
-  { id: 23, name: 'Phi-3.5 MoE', category: 'Edge', params: '6.6B Act', desc: 'A tiny MoE model that rivals much larger ones on reasoning and math.', tags: ['On-Device'], platform: 'Ollama / Huggin[...]
-  { id: 24, name: 'Phi-3-Vision', category: 'Edge', params: '4.2B', desc: 'Combines vision and text reasoning at a small size; superb at document understanding.', tags: ['Vision'], platform: 'Hugg[...]
-  { id: 25, name: 'Stable LM 2', category: 'Edge', params: '12B', desc: 'A compact open model with strong commonsense reasoning and dialogue.', tags: ['Commonsense'], platform: 'Ollama', link: 'ht[...]
-  { id: 26, name: 'Danube 3', category: 'Edge', params: '1.8B', desc: 'Extremely compact and tuned for edge deployment. Great for private QA.', tags: ['Micro'], platform: 'H2O.ai Hub', link: 'http[...]
-  { id: 27, name: 'Cerebras-GPT', category: 'Edge', params: '13B', desc: 'Trained with a highly efficient scaling recipe.', tags: ['Lightweight'], platform: 'Hugging Face', link: 'https://huggingf[...]
-  { id: 28, name: 'Orca 2', category: 'Edge', params: '13B', desc: 'Built using advanced synthetic data, shows chain-of-thought reasoning.', tags: ['CoT'], platform: 'Ollama', link: 'https://huggi[...]
+  { id: 23, name: 'Phi-3.5 MoE', category: 'Edge', params: '6.6B Act', desc: 'A tiny MoE model that rivals much larger ones on reasoning and math.', tags: ['On-Device'], platform: 'Microsoft', link: 'https://www.microsoft.com', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("microsoft/Phi-3.5-mini-instruct")' },
+  { id: 24, name: 'Phi-3-Vision', category: 'Edge', params: '4.2B', desc: 'Combines vision and text reasoning at a small size; superb at document understanding.', tags: ['Vision'], platform: 'Microsoft', link: 'https://www.microsoft.com', accessType: 'python', code: 'from transformers import AutoModelForVision2Seq\nmodel = AutoModelForVision2Seq.from_pretrained("microsoft/phi-3-vision-128k-instruct")' },
+  { id: 25, name: 'Stable LM 2', category: 'Edge', params: '12B', desc: 'A compact open model with strong commonsense reasoning and dialogue.', tags: ['Commonsense'], platform: 'Stability AI', link: 'https://stability.ai', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("stabilityai/stablelm-2-12b")' },
+  { id: 26, name: 'Danube 3', category: 'Edge', params: '1.8B', desc: 'Extremely compact and tuned for edge deployment. Great for private QA.', tags: ['Micro'], platform: 'H2O.ai', link: 'https://h2o.ai', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("h2oai/h2o-danube3-500m-chat")' },
+  { id: 27, name: 'Cerebras-GPT', category: 'Edge', params: '13B', desc: 'Trained with a highly efficient scaling recipe.', tags: ['Lightweight'], platform: 'Cerebras', link: 'https://cerebras.ai', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("cerebras/Cerebras-GPT-13B")' },
+  { id: 28, name: 'Orca 2', category: 'Edge', params: '13B', desc: 'Built using advanced synthetic data, shows chain-of-thought reasoning.', tags: ['CoT'], platform: 'Microsoft', link: 'https://www.microsoft.com', accessType: 'python', code: 'from transformers import AutoModelForCausalLM\nmodel = AutoModelForCausalLM.from_pretrained("microsoft/orca-2-13b")' },
 
   // Novel
-  { id: 29, name: 'Jamba', category: 'Novel', params: '12B Act', desc: 'The first production-grade Mamba-Transformer hybrid with a 256K context window.', tags: ['Mamba-Transformer'], platform: 'AI[...]
-  { id: 30, name: 'Reka Core', category: 'Novel', params: 'Multi', desc: 'A multimodal model (text, image, video, audio) from an independent lab.', tags: ['Omni-Multimodal'], platform: 'Reka API',[...]
+  { id: 29, name: 'Jamba', category: 'Novel', params: '12B Act', desc: 'The first production-grade Mamba-Transformer hybrid with a 256K context window.', tags: ['Mamba-Transformer'], platform: 'AI21 Labs', link: 'https://www.ai21.com', accessType: 'api', code: 'from ai21 import AI21Client\nclient = AI21Client(api_key="YOUR_KEY")\nresponse = client.chat.create(model="jamba-instruct")' },
+  { id: 30, name: 'Reka Core', category: 'Novel', params: 'Multi', desc: 'A multimodal model (text, image, video, audio) from an independent lab.', tags: ['Omni-Multimodal'], platform: 'Reka', link: 'https://www.reka.ai', accessType: 'api', code: 'import requests\nresponse = requests.post("https://api.reka.ai/v1/chat/completions", json={"model": "reka-core"})' },
 ];
 
 export default function App() {
@@ -109,7 +109,7 @@ export default function App() {
           <div className="relative w-full max-w-md">
             <button 
               onClick={() => setShowLogo(false)}
-              className="absolute -top-12 right-0 bg-white hover:bg-stone-100 rounded-full p-2 transition-colors"
+              className="absolute -top-12 right-0 bg-white hover:bg-stone-100 rounded-full p-2 transition-colors z-10"
             >
               <X className="w-6 h-6 text-stone-900" />
             </button>
@@ -124,7 +124,7 @@ export default function App() {
           {/* Logo Thumbnail Button */}
           <button
             onClick={() => setShowLogo(true)}
-            className="group relative w-20 h-20 rounded-lg overflow-hidden hover:scale-105 transition-transform"
+            className="group relative w-20 h-20 rounded-lg overflow-hidden hover:scale-105 transition-transform flex-shrink-0"
           >
             <div className="w-full h-full bg-gradient-to-br from-purple-950 to-purple-900 flex items-center justify-center cursor-pointer"
                  style={{boxShadow: '0 0 20px rgba(100,200,255,0.3)'}}>
@@ -143,7 +143,7 @@ export default function App() {
             </h1>
           </div>
           
-          <div className="w-full md:w-80 relative group">
+          <div className="w-full md:w-80 relative group flex-shrink-0">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
               <Search className="h-5 w-5 text-stone-400 group-focus-within:text-stone-900 transition-colors" />
             </div>
