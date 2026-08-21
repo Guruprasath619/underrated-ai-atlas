@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underrated AI Atlas Logo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Georgia', serif;
+        }
+
+        .logo-container {
+            position: relative;
+            width: 400px;
+            height: 500px;
+        }
+
+        /* Book Base */
+        .book {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+
+        /* Book Cover */
+        .book-cover {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0f2e 0%, #2d1b4e 50%, #1a0f2e 100%);
+            border-radius: 8px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 40px rgba(100, 200, 255, 0.3);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ornamental Border */
+        .ornamental-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(218, 165, 32, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 90%, rgba(218, 165, 32, 0.1) 0%, transparent 30%);
+            pointer-events: none;
+            border: 3px solid rgba(218, 165, 32, 0.3);
+            border-radius: 8px;
+        }
+
+        /* Corner Ornaments */
+        .corner {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            opacity: 0.6;
+        }
+
+        .corner.top-left {
+            top: 15px;
+            left: 15px;
+            border-top: 2px solid #daa520;
+            border-left: 2px solid #daa520;
+        }
+
+        .corner.top-right {
+            top: 15px;
+            right: 15px;
+            border-top: 2px solid #daa520;
+            border-right: 2px solid #daa520;
+        }
+
+        .corner.bottom-left {
+            bottom: 15px;
+            left: 15px;
+            border-bottom: 2px solid #daa520;
+            border-left: 2px solid #daa520;
+        }
+
+        .corner.bottom-right {
+            bottom: 15px;
+            right: 15px;
+            border-bottom: 2px solid #daa520;
+            border-right: 2px solid #daa520;
+        }
+
+        /* Content */
+        .logo-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* AI Neural Network Visualization */
+        .ai-network {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle at 30% 30%, #64c8ff, #0099ff);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(100, 200, 255, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .network-node.center {
+            width: 20px;
+            height: 20px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .network-node.n1 { top: 10%; left: 20%; animation-delay: 0s; }
+        .network-node.n2 { top: 10%; right: 20%; animation-delay: 0.2s; }
+        .network-node.n3 { top: 50%; left: 5%; animation-delay: 0.4s; }
+        .network-node.n4 { top: 50%; right: 5%; animation-delay: 0.6s; }
+        .network-node.n5 { bottom: 10%; left: 20%; animation-delay: 0.8s; }
+        .network-node.n6 { bottom: 10%; right: 20%; animation-delay: 1s; }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(100, 200, 255, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.3);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(100, 200, 255, 1), inset 0 0 12px rgba(255, 255, 255, 0.5);
+                transform: scale(1.2);
+            }
+        }
+
+        /* Connecting Lines */
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        line {
+            stroke: url(#lineGradient);
+            stroke-width: 1.5;
+            opacity: 0.6;
+        }
+
+        /* Title */
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #64c8ff;
+            text-shadow: 
+                0 0 10px rgba(100, 200, 255, 0.5),
+                0 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+            margin-top: 15px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: #daa520;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .description {
+            font-size: 9px;
+            color: rgba(218, 165, 32, 0.8);
+            max-width: 280px;
+            line-height: 1.4;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Glow Effect */
+        .glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            animation: glow-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <div class="book">
+            <div class="book-cover">
+                <div class="glow"></div>
+                
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+
+                <svg viewBox="0 0 150 150" width="150" height="150" style="position: absolute; top: 50px; left: 50%; transform: translateX(-50%); z-index: 1;">
+                    <defs>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#64c8ff;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#0099ff;stop-opacity:0.6" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Connection lines -->
+                    <line x1="75" y1="75" x2="30" y2="15" />
+                    <line x1="75" y1="75" x2="120" y2="15" />
+                    <line x1="75" y1="75" x2="7" y2="75" />
+                    <line x1="75" y1="75" x2="143" y2="75" />
+                    <line x1="75" y1="75" x2="30" y2="135" />
+                    <line x1="75" y1="75" x2="120" y2="135" />
+                    <line x1="30" y1="15" x2="120" y2="15" />
+                    <line x1="30" y1="135" x2="120" y2="135" />
+                </svg>
+
+                <div class="ai-network">
+                    <div class="network-node center"></div>
+                    <div class="network-node n1"></div>
+                    <div class="network-node n2"></div>
+                    <div class="network-node n3"></div>
+                    <div class="network-node n4"></div>
+                    <div class="network-node n5"></div>
+                    <div class="network-node n6"></div>
+                </div>
+
+                <div class="logo-content">
+                    <div class="title">UNDERRATED<br>AI ATLAS</div>
+                    <div class="subtitle">An Exploration of the Hidden Landscapes</div>
+                    <div class="description">Cutting-Edge AI Intelligence</div>
+                </div>
+
+                <div class="ornamental-border"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
